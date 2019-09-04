@@ -3,7 +3,13 @@
 
 class Player:
 
-    def __init__(self, name, currRoom, inv):
+    def __init__(self, name, currRoom):
         self.name = name
         self.currRoom = currRoom
-        self.inv = inv
+        # self.inv = inv
+
+    def __str__(self):
+        return f"Player: {self.name}\nCurrent Room: {self.currRoom}"
+
+    def __repr__(self):
+        return f'Player: {repr(self.name)}\nCurrent Room: {repr(self.currRoom)}'
