@@ -6,7 +6,7 @@ class Player:
     def __init__(self, name, currRoom):
         self.name = name
         self.currRoom = currRoom
-        # self.inv = inv
+        self.inv = []
 
     def __str__(self):
         return f"Player: {self.name}\nCurrent Room: {self.currRoom}"
@@ -16,3 +16,9 @@ class Player:
 
     def change_rooms(self, room):
         self.currRoom = room
+
+    def addItem(self, item):
+        self.inv.append(item)
+
+    def dropItem(self, item):
+        self.inv.remove(item)
