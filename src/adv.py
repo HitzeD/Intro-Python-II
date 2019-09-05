@@ -53,7 +53,7 @@ while not quit:
     print(f"Description:\n '{player1.currRoom.description}'")
     print(f"Items in Room: '{player1.currRoom.items}'\n")
 
-    command = input("(N)orth\n(S)outh\n(E)ast\n(W)est\n(Q)uit\n\nCommand: ")
+    command = input("(N)orth\n(S)outh\n(E)ast\n(W)est\n(Q)uit\n(I)nventory\n\nCommand: ")
     command.lower().strip()[0]
 
     if command == 'q':
@@ -94,6 +94,9 @@ while not quit:
             print('\nThou shall not pass (this way at least!)\n')
         else:
             player1.change_rooms(new_loc)
+        
+    if command == 'i':
+        print(player1.inv)
 
 
 # Write a loop that:
