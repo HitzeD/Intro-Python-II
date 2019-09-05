@@ -15,4 +15,4 @@ class Player:
         return f'Player: {repr(self.name)}\n{repr(self.currRoom)}'
 
     def change_rooms(self, room):
-        self.room = room
+        self.currRoom = room
