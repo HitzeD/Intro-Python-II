@@ -12,4 +12,7 @@ class Player:
         return f"Player: {self.name}\nCurrent Room: {self.currRoom}"
 
     def __repr__(self):
-        return f'Player: {repr(self.name)}\nCurrent Room: {repr(self.currRoom)}'
+        return f'Player: {repr(self.name)}\n{repr(self.currRoom)}'
+
+    def change_rooms(self, room):
+        self.room = room
