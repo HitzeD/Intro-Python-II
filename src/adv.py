@@ -47,9 +47,11 @@ quit = False
 
 while not quit:
 
-    print(f"\nName: {player1.name}")
-    print(f"\nRoom: {player1.currRoom.name}\n")
-    print(f"{player1.currRoom.description}\n")
+    print(f"\nName: '{player1.name}'")
+    print(f"My Items: '{player1.inv}'")
+    print(f"Room: '{player1.currRoom.name}'")
+    print(f"Description:\n '{player1.currRoom.description}'")
+    print(f"Items in Room: '{player1.currRoom.items}'\n")
 
     command = input("(N)orth\n(S)outh\n(E)ast\n(W)est\n(Q)uit\n\nCommand: ")
     command.lower().strip()[0]
@@ -64,6 +66,7 @@ while not quit:
         if new_loc == None:
             print('Thou shall not pass (this way at least!)')
         else:
+            print(new_loc)
             player1.change_rooms(new_loc)
 
     if command == 'n':
