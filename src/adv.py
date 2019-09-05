@@ -41,16 +41,56 @@ room['treasure'].s_to = room['narrow']
 # Make a new player object that is currently in the 'outside' room.
 player1 = Player("John", room['outside'])
 
-print(player1)
-
+# print(player1)
+# print(player1.currRoom.name)
 quit = False
 
 while not quit:
-    command = input("(N)orth\n(S)outh\n(E)ast\n(W)est\n(Q)uit\nCommand: ")
+
+    print(f"\nName: {player1.name}")
+    print(f"\nRoom: {player1.currRoom.name}\n")
+    print(f"{player1.currRoom.description}\n")
+
+    command = input("(N)orth\n(S)outh\n(E)ast\n(W)est\n(Q)uit\n\nCommand: ")
     command.lower().strip()[0]
 
     if command == 'q':
         quit = True
+
+    if command == 's':
+
+        new_loc = player1.currRoom.switch_direction(command)
+
+        if new_loc == None:
+            print('Thou shall not pass (this way at least!)')
+        else:
+            player1.change_rooms(new_loc)
+
+    if command == 'n':
+
+        new_loc = player1.currRoom.switch_direction(command)
+        
+        if new_loc == None:
+            print('Thou shall not pass (this way at least!)')
+        else:
+            player1.change_rooms(new_loc)
+
+    if command == 'w':
+
+        new_loc = player1.currRoom.switch_direction(command)
+
+        if new_loc == None:
+            print('Thou shall not pass (this way at least!)')
+        else:
+            player1.change_rooms(new_loc)
+
+    if command == 'e':
+        new_loc = player1.currRoom.switch_direction(command)
+
+        if new_loc == None:
+            print('\nThou shall not pass (this way at least!)\n')
+        else:
+            player1.change_rooms(new_loc)
 
 
 # Write a loop that:
