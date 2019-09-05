@@ -7,7 +7,7 @@ class Player:
     def __init__(self, name, currRoom):
         self.name = name
         self.currRoom = currRoom
-        self.inv = [Item('Rusty Stick', 'Rusty Stick'), Item("Empty Bottle", 'Empty Bottle of Water')]
+        self.inv = []
 
     def __str__(self):
         return f"Player: {self.name}\nCurrent Room: {self.currRoom}\nInventory: {self.inv}"
