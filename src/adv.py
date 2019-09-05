@@ -1,5 +1,6 @@
 from room import Room
 from player import Player
+from item import Item
 
 # Declare all the rooms
 
@@ -22,6 +23,11 @@ chamber! Sadly, it has already been completely emptied by
 earlier adventurers. The only exit is to the south."""),
 }
 
+room['outside'].items = [Item('Broken Styrofoam Cup', "Trash"), Item('Old, Wet, Newspaper', 'Trash as well')]
+room['foyer'].items
+room['overlook'].items
+room['narrow'].items
+room['treasure'].items
 
 # Link rooms together
 
@@ -33,6 +39,8 @@ room['overlook'].s_to = room['foyer']
 room['narrow'].w_to = room['foyer']
 room['narrow'].n_to = room['treasure']
 room['treasure'].s_to = room['narrow']
+
+        
 
 #
 # Main
@@ -53,7 +61,7 @@ while not quit:
     print(f"Description:\n '{player1.currRoom.description}'")
     print(f"Items in Room: '{player1.currRoom.items}'\n")
 
-    command = input("(N)orth\n(S)outh\n(E)ast\n(W)est\n(Q)uit\n(I)nventory\n\nCommand: ")
+    command = input("(N)orth\n(S)outh\n(E)ast\n(W)est\n(Q)uit\n(I)nventory\n\n(1) pick-up item 1\n(2) pick up item 2\n(Z) Remove first item in Inventory\n(X) Remove Second item in Inventory\n\nCommand: ")
     command.lower().strip()[0]
 
     if command == 'q':
@@ -97,6 +105,27 @@ while not quit:
         
     if command == 'i':
         print(player1.inv)
+
+    if command == '1':
+        pickUp = player1.currRoom.items[0]
+        player1.addItem(pickUp)
+        player1.currRoom.dropItem(pickUp)
+
+    if command == '2':
+        pickup = player1.currRoom.items[1]
+        player1.addItem(pickup)
+        player1.currRoom.dropItem(pickup)
+
+    if command == 'z':
+        drop = player1.inv[0]
+        player1.dropItem(drop)
+        player1.currRoom.addItem(drop)
+
+    if command == 'x':
+        drop = player1.inv[1]
+        player1.dropItem(drop)
+        player1.currRoom.addItem(drop)
+
 
 
 # Write a loop that:
